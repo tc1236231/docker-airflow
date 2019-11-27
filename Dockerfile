@@ -75,6 +75,9 @@ COPY config/airflow.cfg ${AIRFLOW_USER_HOME}/airflow.cfg
 
 RUN chown -R airflow: ${AIRFLOW_USER_HOME}
 
+#TODO: This is the temp solution for resolving python2 issue
+RUN ln -s /usr/local/bin/python /usr/local/bin/python2
+
 EXPOSE 8080 5555 8793
 
 USER airflow
